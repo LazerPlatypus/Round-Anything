@@ -348,12 +348,12 @@ function findPoint(ang1,refpoint1,ang2,refpoint2,r=0)=
       refpoint1.x:
       is90or270(ang2)?
       refpoint2.x:
-      0,
+      undef,
     m1=tan(ang1),
     c1=refpoint1.y-m1*refpoint1.x,
 	  m2=tan(ang2),
     c2=refpoint2.y-m2*refpoint2.x,
-    outputX=overrideX?overrideX:(c2-c1)/(m1-m2),
+    outputX=overrideX!=undef?overrideX:(c2-c1)/(m1-m2),
     outputY=is90or270(ang1)?m2*outputX+c2:m1*outputX+c1
   )
 	[outputX,outputY,r];
